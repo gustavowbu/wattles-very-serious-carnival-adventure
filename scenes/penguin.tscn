@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://di4s0vbgvwket"]
+
+[ext_resource type="Texture2D" uid="uid://oli02rbh2f1s" path="res://assets/penguin/penguin_idle.png" id="1_ghsx3"]
+[ext_resource type="Script" uid="uid://dwkknk5rb4yyw" path="res://scripts/penguin.gd" id="1_o7lby"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7lby"]
+size = Vector2(15, 30)
+
+[node name="Penguin" type="CharacterBody2D" unique_id=269875018]
+collision_mask = 2
+script = ExtResource("1_o7lby")
+
+[node name="Penguin" type="Sprite2D" parent="." unique_id=481058728]
+position = Vector2(0, -16)
+texture = ExtResource("1_ghsx3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=608979944]
+position = Vector2(-0.5, -15)
+shape = SubResource("RectangleShape2D_o7lby")
+
+[node name="DeathCollision" type="Area2D" parent="." unique_id=531364112]
+visible = false
+collision_layer = 0
+collision_mask = 4
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathCollision" unique_id=267359199]
+position = Vector2(-0.5, -15)
+shape = SubResource("RectangleShape2D_o7lby")
+metadata/_edit_lock_ = true
+
+[connection signal="area_entered" from="DeathCollision" to="." method="_on_death_collision_area_entered"]

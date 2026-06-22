@@ -1,0 +1,54 @@
+[gd_scene format=4 uid="uid://bd3g4ff5b8a2f"]
+
+[ext_resource type="PackedScene" uid="uid://di4s0vbgvwket" path="res://scenes/penguin.tscn" id="1_errlg"]
+[ext_resource type="Texture2D" uid="uid://ka2gnmil7jvr" path="res://assets/tileset.png" id="2_bl13t"]
+[ext_resource type="Script" uid="uid://dwkknk5rb4yyw" path="res://scripts/penguin.gd" id="2_iyx0m"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iyx0m"]
+texture = ExtResource("2_bl13t")
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/terrains_peering_bit/bottom_left_corner = 0
+0:0/0/terrains_peering_bit/left_side = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0/terrains_peering_bit/right_side = 0
+1:0/0/terrains_peering_bit/bottom_right_corner = 0
+1:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0/terrains_peering_bit/bottom_left_corner = 0
+1:0/0/terrains_peering_bit/left_side = 0
+1:0/0/terrains_peering_bit/top_left_corner = 0
+1:0/0/terrains_peering_bit/top_side = 0
+1:0/0/terrains_peering_bit/top_right_corner = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_74lek"]
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 0
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_iyx0m")
+
+[node name="Test" type="Node2D" unique_id=2051540084]
+
+[node name="Penguin" parent="." unique_id=269875018 instance=ExtResource("1_errlg")]
+collision_mask = 2
+script = ExtResource("2_iyx0m")
+
+[node name="Camera2D" type="Camera2D" parent="Penguin" unique_id=407502093]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+metadata/_edit_lock_ = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=883900615]
+tile_map_data = PackedByteArray("AAD6/wAAAAAAAAAAAAD7/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAABAAAAAAAEAAEAAAABAAAAAAADAAEAAAABAAAAAAACAAEAAAABAAAAAAABAAEAAAABAAAAAAAAAAEAAAABAAAAAAD//wEAAAABAAAAAAD+/wEAAAABAAAAAAD9/wEAAAABAAAAAAD8/wEAAAABAAAAAAD7/wEAAAABAAAAAAD6/wEAAAABAAAAAAAGAAEAAAABAAAAAAAGAAAAAAABAAAAAAAHAAAAAAABAAAAAAAGAP//AAABAAAAAAAGAP7/AAABAAAAAAAGAP3/AAABAAAAAAAGAPz/AAABAAAAAAAGAPv/AAABAAAAAAAGAPr/AAABAAAAAAAGAPn/AAABAAAAAAAGAPj/AAABAAAAAAAGAPf/AAAAAAAAAAAHAPf/AAAAAAAAAAAHAPj/AAABAAAAAAAHAPn/AAABAAAAAAAHAPr/AAABAAAAAAAHAPv/AAABAAAAAAAHAPz/AAABAAAAAAAHAP3/AAABAAAAAAAHAP7/AAABAAAAAAAHAP//AAABAAAAAAAHAAEAAAABAAAAAAD0/wAAAAAAAAAAAAD0/wEAAAABAAAAAADz/wEAAAABAAAAAADy/wEAAAABAAAAAADy/wAAAAAAAAAAAADz/wAAAAAAAAAAAAD9//z/AAAAAAAAAAD8//z/AAAAAAAAAAD6//n/AAAAAAAAAAD5//n/AAAAAAAAAADx/wAAAAAAAAAAAADw/wAAAAAAAAAAAADv/wAAAAAAAAAAAADv/wEAAAABAAAAAADw/wEAAAABAAAAAADx/wEAAAABAAAAAAD6/wYAAAAAAAAAAAD6/wsAAAAAAAAAAAD6/xAAAAAAAAAAAAD6/xUAAAAAAAAAAAD6/xoAAAAAAAAAAAD6/x8AAAAAAAAAAAD6/yQAAAAAAAAAAAD6/ykAAAAAAAAAAAD6/y4AAAAAAAAAAAD6/zMAAAAAAAAAAAD6/zgAAAAAAAAAAAD6/z0AAAAAAAAAAAD6/0IAAAAAAAAAAAD6/0cAAAAAAAAAAAD6/0wAAAAAAAAAAAD6/1EAAAAAAAAAAAD6/1YAAAAAAAAAAAD6/1sAAAAAAAAAAAD6/2AAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_74lek")
