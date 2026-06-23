@@ -1,5 +1,13 @@
 extends Node
 
+# Attributes
+## Movement attributes
+var can_wall_jump := false
+var can_spin_jump := false
+var can_propel := false
+var can_throw := false
+var can_dive := false
+
 # Methods
 ## Overriden methods
 func _ready() -> void:

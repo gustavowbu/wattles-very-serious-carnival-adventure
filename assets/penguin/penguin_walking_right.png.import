@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0q5rek8vojvo"
-path="res://.godot/imported/penguin_idle.png-321efb4bf6c66440dabd87f1a918bf4b.ctex"
+uid="uid://dwna7osedsggy"
+path="res://.godot/imported/penguin_walking_right.png-a0fd6714eea90b9a2f8326e6fdab5827.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/penguin/penguin_idle.png"
-dest_files=["res://.godot/imported/penguin_idle.png-321efb4bf6c66440dabd87f1a918bf4b.ctex"]
+source_file="res://assets/penguin/penguin_walking_right.png"
+dest_files=["res://.godot/imported/penguin_walking_right.png-a0fd6714eea90b9a2f8326e6fdab5827.ctex"]
 
 [params]
 

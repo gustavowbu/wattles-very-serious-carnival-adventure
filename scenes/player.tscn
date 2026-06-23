@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://di4s0vbgvwket"]
+
+[ext_resource type="Texture2D" uid="uid://c0q5rek8vojvo" path="res://assets/penguin/penguin_idle.png" id="1_ghsx3"]
+[ext_resource type="Script" uid="uid://bhxgcr5xsbkif" path="res://scripts/player.gd" id="1_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://dlcdwsdi4r2ec" path="res://assets/penguin/penguin_jumping.png" id="3_0fc08"]
+[ext_resource type="Texture2D" uid="uid://dp521yvregb57" path="res://assets/penguin/penguin_walking_left.png" id="3_lfb5m"]
+[ext_resource type="Texture2D" uid="uid://dwna7osedsggy" path="res://assets/penguin/penguin_walking_right.png" id="4_52wv8"]
+[ext_resource type="SpriteFrames" uid="uid://yhee7cslyudn" path="res://resources/SpriteSheets/hat_sprite_sheet.tres" id="5_52wv8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aljst"]
+atlas = ExtResource("3_0fc08")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbmsh"]
+atlas = ExtResource("3_lfb5m")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg854"]
+atlas = ExtResource("3_lfb5m")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44rek"]
+atlas = ExtResource("4_52wv8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prwc0"]
+atlas = ExtResource("4_52wv8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_44rek"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ghsx3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aljst")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbmsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg854")
+}],
+"loop": true,
+"name": &"walking_left",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44rek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prwc0")
+}],
+"loop": true,
+"name": &"walking_right",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7lby"]
+size = Vector2(15, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52wv8"]
+size = Vector2(15, 3)
+
+[node name="Player" type="CharacterBody2D" unique_id=269875018]
+collision_mask = 2
+script = ExtResource("1_tuyoq")
+metadata/_edit_lock_ = true
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1398285331]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_44rek")
+animation = &"jumping"
+
+[node name="Hat" type="AnimatedSprite2D" parent="." unique_id=1739672066]
+position = Vector2(-0.5, -36.5)
+sprite_frames = ExtResource("5_52wv8")
+animation = &"spinning"
+frame_progress = 0.98518294
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=608979944]
+position = Vector2(-0.5, -15)
+shape = SubResource("RectangleShape2D_o7lby")
+metadata/_edit_lock_ = true
+
+[node name="DeathCollision" type="Area2D" parent="." unique_id=531364112]
+collision_layer = 0
+collision_mask = 4
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathCollision" unique_id=267359199]
+position = Vector2(-0.5, -15)
+shape = SubResource("RectangleShape2D_o7lby")
+metadata/_edit_lock_ = true
+
+[node name="Feet" type="Area2D" parent="." unique_id=1817583391]
+collision_layer = 0
+collision_mask = 8
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Feet" unique_id=1519802448]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_52wv8")
+metadata/_edit_lock_ = true
+
+[connection signal="area_entered" from="DeathCollision" to="." method="_on_death_collision_area_entered"]
+[connection signal="area_entered" from="Feet" to="." method="_on_feet_touched_hat"]
