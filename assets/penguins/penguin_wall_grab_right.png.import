@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp521yvregb57"
-path="res://.godot/imported/penguin_walking_left.png-da5a249d7806caf044bbe39a32abee0f.ctex"
+uid="uid://bgmfk6byxk5au"
+path="res://.godot/imported/penguin_wall_grab_right.png-a00c7f36637ea8f35f33927b90ec1559.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/penguin/penguin_walking_left.png"
-dest_files=["res://.godot/imported/penguin_walking_left.png-da5a249d7806caf044bbe39a32abee0f.ctex"]
+source_file="res://assets/penguins/penguin_wall_grab_right.png"
+dest_files=["res://.godot/imported/penguin_wall_grab_right.png-a00c7f36637ea8f35f33927b90ec1559.ctex"]
 
 [params]
 

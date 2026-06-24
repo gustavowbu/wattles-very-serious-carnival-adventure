@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://swgkm1afg44q"
-path="res://.godot/imported/poopers.png-7e498131b430957c68369b962e3bf554.ctex"
+uid="uid://d2vdq4uyfyv20"
+path="res://.godot/imported/penguin_jumping_left.png-84b6a175fd35092daa5e92c8fb19a851.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/poopers.png"
-dest_files=["res://.godot/imported/poopers.png-7e498131b430957c68369b962e3bf554.ctex"]
+source_file="res://assets/player/penguin_jumping_left.png"
+dest_files=["res://.godot/imported/penguin_jumping_left.png-84b6a175fd35092daa5e92c8fb19a851.ctex"]
 
 [params]
 

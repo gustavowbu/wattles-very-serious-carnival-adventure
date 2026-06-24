@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://pbyul2pp5076"]
+
+[ext_resource type="Script" uid="uid://cu47a5df5eakb" path="res://scripts/penguin.gd" id="1_l35kf"]
+[ext_resource type="Texture2D" uid="uid://ou0348bxkl76" path="res://assets/penguins/blue_penguin.png" id="2_2jxmh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcgiy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2jxmh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jxmh"]
+size = Vector2(15, 30)
+
+[node name="BluePenguin" type="CharacterBody2D" unique_id=742915194]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_l35kf")
+color = "blue"
+metadata/_custom_type_script = "uid://cu47a5df5eakb"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=724099434]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_qcgiy")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1489625913]
+position = Vector2(-0.5, -15)
+shape = SubResource("RectangleShape2D_2jxmh")
+metadata/_edit_lock_ = true

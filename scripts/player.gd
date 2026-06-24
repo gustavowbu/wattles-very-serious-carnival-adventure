@@ -3,7 +3,7 @@ extends CharacterBody2D
 # Attributes
 var direction := 1
 
-## movement attributes
+## Movement attributes
 var max_speed = 5
 var acceleration = 0.5
 var jump_velocity = 14
@@ -11,7 +11,7 @@ var propel_velocity = 9
 var gravity = 50
 var max_falling_speed = 15
 
-## memory attributes
+## Memory attributes
 var can_dive = true
 var can_propel = true
 var propelling = false
@@ -36,25 +36,27 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Updating state
+	## Key presses
 	var movement := Input.get_axis("move_left", "move_right")
 	var jump := Input.is_action_just_pressed("jump")
 	var dive := Input.is_action_just_pressed("dive")
 	var propel := Input.is_action_just_pressed("propel")
 	var throw := Input.is_action_just_pressed("throw")
-	var wall_sliding := movement and is_on_wall() and velocity.y > 0
 
-	if movement:
-		direction = int(movement)
+	## Movement state
+	var wall_sliding := movement and is_on_wall() and velocity.y > 0
 
 	if is_on_floor():
 		can_dive = true
-		can_propel = true
-	if propel and can_propel and has_hat:
+		can_propel = has_hat
+	if propel and can_propel:
 		can_propel = false
 		propelling = true
 		propel_cooldown = 0.35
-	if not has_hat:
-		propelling = false
+
+	## Other state variables
+	if movement:
+		direction = int(movement)
 
 	# Updating velocity
 	## gravity
@@ -83,7 +85,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = -propel_velocity
 		propel_cooldown -= delta
 		if propel_cooldown <= 0:
-			propelling = 0
+			propelling = false
 
 	## jumping
 	if jump and (is_on_floor() or (wall_sliding and Global.can_wall_jump)):
@@ -95,9 +97,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 2 * max_speed * direction
 		can_dive = false
 
-	## Throwing hat
+	## throwing hat
 	if throw and has_hat and Global.can_throw:
 		has_hat = false
+		can_propel = false
 		var hat: Node2D = load("res://scenes/hat.tscn").instantiate()
 		hat.thrower = self
 		hat.position = position + Vector2(direction * 32, -8)
@@ -108,6 +111,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	# Updating animation
+	## walking
 	if movement == 0 or propelling:
 		sprite.play("idle")
 	elif movement > 0:
@@ -115,9 +119,23 @@ func _physics_process(delta: float) -> void:
 	else:
 		sprite.play("walking_left")
 
+	## jumping and propelling
 	if not is_on_floor():
-		sprite.play("jumping")
+		if movement == 0 or propelling:
+			sprite.play("jumping_front")
+		elif movement > 0:
+			sprite.play("jumping_right")
+		else:
+			sprite.play("jumping_left")
 
+	## wall sliding
+	if wall_sliding:
+		if movement > 0:
+			sprite.play("wall_sliding_right")
+		else:
+			sprite.play("wall_sliding_left")
+
+	## hat
 	if not has_hat:
 		hat_sprite.play("no_hat")
 	elif velocity != Vector2(0, 0):

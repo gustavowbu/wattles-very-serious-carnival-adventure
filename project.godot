@@ -13,7 +13,7 @@ config_version=5
 config/name="Wattles' Very Serious Carnival Adventure"
 run/main_scene="uid://by16lnilea4w"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://h6mjg7kxx85h"
 
 [autoload]
 

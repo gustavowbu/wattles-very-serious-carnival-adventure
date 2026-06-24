@@ -6,6 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://d20xpamq1sjl3" path="res://assets/welcome_sign.png" id="3_m7ahb"]
 [ext_resource type="Texture2D" uid="uid://pgbcglqkl7j0" path="res://assets/welcome_sign_post.png" id="4_dwgg1"]
 [ext_resource type="Texture2D" uid="uid://b3omtaw1blf72" path="res://assets/instructions/wasd.png" id="5_ru4tf"]
+[ext_resource type="PackedScene" uid="uid://pbyul2pp5076" path="res://scenes/penguins/blue_penguin.tscn" id="7_ejswk"]
+[ext_resource type="PackedScene" uid="uid://c50g3ll3npx7t" path="res://scenes/penguins/golden_penguin.tscn" id="8_f31uk"]
+[ext_resource type="PackedScene" uid="uid://d7ltr0dqqvoe" path="res://scenes/penguins/green_penguin.tscn" id="9_gnai3"]
+[ext_resource type="PackedScene" uid="uid://paiv4m5rgdru" path="res://scenes/penguins/orange_penguin.tscn" id="10_i8kv5"]
+[ext_resource type="PackedScene" uid="uid://epnm6tw2exko" path="res://scenes/penguins/pink_penguin.tscn" id="11_dxn3v"]
+[ext_resource type="PackedScene" uid="uid://d25v5v47sn010" path="res://scenes/penguins/poopers.tscn" id="12_14jow"]
+[ext_resource type="PackedScene" uid="uid://bfpsyf778lduu" path="res://scenes/penguins/purple_penguin.tscn" id="13_mvsps"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dwgg1"]
 texture = ExtResource("1_wwpf4")
@@ -60,6 +67,27 @@ tile_set = SubResource("TileSet_ru4tf")
 [node name="WelcomeSignPost" type="Sprite2D" parent="." unique_id=2099328268]
 position = Vector2(126, -68)
 texture = ExtResource("4_dwgg1")
+
+[node name="BluePenguin" parent="." unique_id=742915194 instance=ExtResource("7_ejswk")]
+position = Vector2(658, 0)
+
+[node name="GoldenPenguin" parent="." unique_id=1876030219 instance=ExtResource("8_f31uk")]
+position = Vector2(694, 0)
+
+[node name="GreenPenguin" parent="." unique_id=2123686830 instance=ExtResource("9_gnai3")]
+position = Vector2(732, 0)
+
+[node name="OrangePenguin" parent="." unique_id=185018707 instance=ExtResource("10_i8kv5")]
+position = Vector2(775, 0)
+
+[node name="PinkPenguin" parent="." unique_id=2111961980 instance=ExtResource("11_dxn3v")]
+position = Vector2(814, 0)
+
+[node name="Poopers" parent="." unique_id=993637296 instance=ExtResource("12_14jow")]
+position = Vector2(853, 2)
+
+[node name="PurplePenguin" parent="." unique_id=829219241 instance=ExtResource("13_mvsps")]
+position = Vector2(889, 0)
 
 [node name="Penguin" parent="." unique_id=269875018 instance=ExtResource("2_m7ahb")]
 

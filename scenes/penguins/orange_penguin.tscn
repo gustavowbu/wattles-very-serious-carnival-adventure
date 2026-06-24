@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://paiv4m5rgdru"]
+
+[ext_resource type="Script" uid="uid://cu47a5df5eakb" path="res://scripts/penguin.gd" id="1_4q1al"]
+[ext_resource type="Texture2D" uid="uid://b3u852qfe1y8k" path="res://assets/penguins/orange_penguin.png" id="2_4q1al"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcgiy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4q1al")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jxmh"]
+size = Vector2(15, 30)
+
+[node name="OrangePenguin" type="CharacterBody2D" unique_id=742915194]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_4q1al")
+color = "orange"
+metadata/_custom_type_script = "uid://cu47a5df5eakb"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=724099434]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_qcgiy")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1489625913]
+position = Vector2(-0.5, -15)
+shape = SubResource("RectangleShape2D_2jxmh")
+metadata/_edit_lock_ = true

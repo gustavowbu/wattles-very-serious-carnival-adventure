@@ -2,11 +2,11 @@ extends Node
 
 # Attributes
 ## Movement attributes
-var can_wall_jump := false
-var can_spin_jump := false
-var can_propel := false
-var can_throw := false
-var can_dive := false
+var can_wall_jump := true
+var can_spin_jump := true
+var can_propel := true
+var can_throw := true
+var can_dive := true
 
 # Methods
 ## Overriden methods

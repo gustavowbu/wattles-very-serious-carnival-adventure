@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlcdwsdi4r2ec"
-path="res://.godot/imported/penguin_jumping.png-368cb783bc3eedc97e24de8f3d72e1c1.ctex"
+uid="uid://brfaceoxt60qb"
+path="res://.godot/imported/golden_penguin.png-b2c4c1d640ad3179bc445ccc7658da9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/penguin/penguin_jumping.png"
-dest_files=["res://.godot/imported/penguin_jumping.png-368cb783bc3eedc97e24de8f3d72e1c1.ctex"]
+source_file="res://assets/penguins/golden_penguin.png"
+dest_files=["res://.godot/imported/golden_penguin.png-b2c4c1d640ad3179bc445ccc7658da9a.ctex"]
 
 [params]
 
