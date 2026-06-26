@@ -1,7 +1,25 @@
 [gd_scene format=3 uid="uid://d7ltr0dqqvoe"]
 
 [ext_resource type="Script" uid="uid://cu47a5df5eakb" path="res://scripts/penguin.gd" id="1_wuspn"]
-[ext_resource type="Texture2D" uid="uid://fyov61nbh3qt" path="res://assets/penguins/green_penguin.png" id="2_wuspn"]
+[ext_resource type="Texture2D" uid="uid://fyov61nbh3qt" path="res://assets/characters/penguins/green_penguin.png" id="2_wuspn"]
+[ext_resource type="Texture2D" uid="uid://b81okcorbbgpa" path="res://assets/characters/penguins/green_penguin_walking_left.png" id="3_fasph"]
+[ext_resource type="Texture2D" uid="uid://c1hadyqcq7vci" path="res://assets/characters/penguins/green_penguin_walking_right.png" id="4_qlenn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmdib"]
+atlas = ExtResource("3_fasph")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_moab2"]
+atlas = ExtResource("3_fasph")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwsiy"]
+atlas = ExtResource("4_qlenn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8dem"]
+atlas = ExtResource("4_qlenn")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qcgiy"]
 animations = [{
@@ -12,6 +30,28 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmdib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_moab2")
+}],
+"loop": true,
+"name": &"walking_left",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwsiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8dem")
+}],
+"loop": true,
+"name": &"walking_right",
+"speed": 4.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jxmh"]
@@ -23,13 +63,15 @@ collision_mask = 2
 script = ExtResource("1_wuspn")
 color = "green"
 metadata/_custom_type_script = "uid://cu47a5df5eakb"
+metadata/_edit_lock_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=724099434]
-position = Vector2(0, -16)
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=724099434]
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_qcgiy")
 animation = &"idle"
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1489625913]
-position = Vector2(-0.5, -15)
+position = Vector2(-0.5, -7)
 shape = SubResource("RectangleShape2D_2jxmh")
 metadata/_edit_lock_ = true

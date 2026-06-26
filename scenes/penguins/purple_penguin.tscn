@@ -1,7 +1,25 @@
 [gd_scene format=3 uid="uid://bfpsyf778lduu"]
 
 [ext_resource type="Script" uid="uid://cu47a5df5eakb" path="res://scripts/penguin.gd" id="1_tdikt"]
-[ext_resource type="Texture2D" uid="uid://cuxle26pmfdbk" path="res://assets/penguins/purple_penguin.png" id="2_tdikt"]
+[ext_resource type="Texture2D" uid="uid://cuxle26pmfdbk" path="res://assets/characters/penguins/purple_penguin.png" id="2_tdikt"]
+[ext_resource type="Texture2D" uid="uid://capb2jsf50wf7" path="res://assets/characters/penguins/purple_penguin_walking_left.png" id="3_xeuv4"]
+[ext_resource type="Texture2D" uid="uid://d3ocwnw6c4e3f" path="res://assets/characters/penguins/purple_penguin_walking_right.png" id="4_r5fv7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5fv7"]
+atlas = ExtResource("3_xeuv4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y65py"]
+atlas = ExtResource("3_xeuv4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2h2l"]
+atlas = ExtResource("4_r5fv7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm65v"]
+atlas = ExtResource("4_r5fv7")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qcgiy"]
 animations = [{
@@ -12,6 +30,28 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5fv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y65py")
+}],
+"loop": true,
+"name": &"walking_left",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2h2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm65v")
+}],
+"loop": true,
+"name": &"walking_right",
+"speed": 4.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jxmh"]
@@ -23,13 +63,15 @@ collision_mask = 2
 script = ExtResource("1_tdikt")
 color = "purple"
 metadata/_custom_type_script = "uid://cu47a5df5eakb"
+metadata/_edit_lock_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=724099434]
-position = Vector2(0, -16)
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=724099434]
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_qcgiy")
 animation = &"idle"
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1489625913]
-position = Vector2(-0.5, -15)
+position = Vector2(-0.5, -7)
 shape = SubResource("RectangleShape2D_2jxmh")
 metadata/_edit_lock_ = true

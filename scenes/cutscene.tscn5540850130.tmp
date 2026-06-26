@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://i167v8jhtqth"]
+
+[ext_resource type="Script" uid="uid://bnhpsnxx0yd82" path="res://scripts/cutscene.gd" id="1_2bm7f"]
+[ext_resource type="Texture2D" uid="uid://11mhsnyww03w" path="res://assets/cutscene/background.png" id="1_edmg7"]
+[ext_resource type="Texture2D" uid="uid://g3wq70cnfdgk" path="res://assets/cutscene/desk.png" id="2_a320b"]
+[ext_resource type="SpriteFrames" uid="uid://xdt05v2ahy66" path="res://resources/SpriteFrames/player_sprite_frames.tres" id="3_2bm7f"]
+[ext_resource type="Texture2D" uid="uid://cqmmji3nsj3kd" path="res://assets/cutscene/door.png" id="5_fs8wb"]
+[ext_resource type="AudioStream" uid="uid://cnyp6r6ea0k6l" path="res://audio/voice_lines/cutscene_1.wav" id="6_bb0yx"]
+
+[node name="Cutscene" type="Node2D" unique_id=1554122213]
+script = ExtResource("1_2bm7f")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=623862711]
+position = Vector2(0, 0.5)
+zoom = Vector2(4, 4)
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="." unique_id=651793439]
+texture = ExtResource("1_edmg7")
+metadata/_edit_lock_ = true
+
+[node name="Player" type="AnimatedSprite2D" parent="." unique_id=629274228]
+position = Vector2(-2, 17)
+sprite_frames = ExtResource("3_2bm7f")
+animation = &"idle"
+
+[node name="Desk" type="Sprite2D" parent="." unique_id=394787207]
+texture = ExtResource("2_a320b")
+metadata/_edit_lock_ = true
+
+[node name="Door" type="Sprite2D" parent="." unique_id=1286672927]
+visible = false
+texture = ExtResource("5_fs8wb")
+metadata/_edit_lock_ = true
+
+[node name="Audio" type="AudioStreamPlayer" parent="." unique_id=1005387439]
+stream = ExtResource("6_bb0yx")

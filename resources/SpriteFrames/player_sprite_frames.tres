@@ -1,0 +1,134 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://xdt05v2ahy66"]
+
+[ext_resource type="Texture2D" uid="uid://mglj7sxkfmjp" path="res://assets/characters/player/penguin_dive_left.png" id="1_35ptv"]
+[ext_resource type="Texture2D" uid="uid://ndhtlhgybc5k" path="res://assets/characters/player/penguin_dive_right.png" id="2_fqjdo"]
+[ext_resource type="Texture2D" uid="uid://bxqeqiuf2vr60" path="res://assets/characters/player/penguin_facing_right.png" id="3_fqjdo"]
+[ext_resource type="Texture2D" uid="uid://c0q5rek8vojvo" path="res://assets/characters/player/penguin_idle.png" id="3_utv16"]
+[ext_resource type="Texture2D" uid="uid://dlcdwsdi4r2ec" path="res://assets/characters/player/penguin_jumping.png" id="4_k1u5h"]
+[ext_resource type="Texture2D" uid="uid://d2vdq4uyfyv20" path="res://assets/characters/player/penguin_jumping_left.png" id="5_gn3wi"]
+[ext_resource type="Texture2D" uid="uid://noebsvg6go28" path="res://assets/characters/player/penguin_jumping_right.png" id="6_eil3n"]
+[ext_resource type="Texture2D" uid="uid://dp521yvregb57" path="res://assets/characters/player/penguin_walking_left.png" id="7_b0pp1"]
+[ext_resource type="Texture2D" uid="uid://dwna7osedsggy" path="res://assets/characters/player/penguin_walking_right.png" id="8_fok08"]
+[ext_resource type="Texture2D" uid="uid://yxj1pfx3my71" path="res://assets/characters/player/penguin_wall_grab_left.png" id="9_f0h3l"]
+[ext_resource type="Texture2D" uid="uid://dknujjewsp5cw" path="res://assets/characters/player/penguin_wall_grab_right.png" id="10_571ep"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utv16"]
+atlas = ExtResource("3_fqjdo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aljst"]
+atlas = ExtResource("4_k1u5h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbmsh"]
+atlas = ExtResource("7_b0pp1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg854"]
+atlas = ExtResource("7_b0pp1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44rek"]
+atlas = ExtResource("8_fok08")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prwc0"]
+atlas = ExtResource("8_fok08")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_35ptv")
+}],
+"loop": true,
+"name": &"diving_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fqjdo")
+}],
+"loop": true,
+"name": &"diving_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utv16")
+}],
+"loop": true,
+"name": &"facing_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_utv16")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aljst")
+}],
+"loop": true,
+"name": &"jumping_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_gn3wi")
+}],
+"loop": true,
+"name": &"jumping_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_eil3n")
+}],
+"loop": true,
+"name": &"jumping_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbmsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg854")
+}],
+"loop": true,
+"name": &"walking_left",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44rek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prwc0")
+}],
+"loop": true,
+"name": &"walking_right",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_f0h3l")
+}],
+"loop": true,
+"name": &"wall_sliding_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_571ep")
+}],
+"loop": true,
+"name": &"wall_sliding_right",
+"speed": 5.0
+}]

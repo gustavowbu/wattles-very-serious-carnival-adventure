@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ciiliwphh8omg"]
 
-[ext_resource type="SpriteFrames" uid="uid://yhee7cslyudn" path="res://resources/SpriteSheets/hat_sprite_sheet.tres" id="1_uepus"]
+[ext_resource type="SpriteFrames" uid="uid://yhee7cslyudn" path="res://resources/SpriteFrames/hat_sprite_frames.tres" id="1_uepus"]
 [ext_resource type="Script" uid="uid://i6cjdkg2hehu" path="res://scripts/hat.gd" id="1_y2nui"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cyt3v"]
@@ -27,6 +27,7 @@ frame_progress = 0.53218955
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=95187512]
 position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_cyt3v")
+metadata/_edit_lock_ = true
 
 [node name="DeathCollision" type="Area2D" parent="." unique_id=2130407279]
 collision_layer = 0
@@ -38,13 +39,13 @@ shape = SubResource("RectangleShape2D_dvrgv")
 metadata/_edit_lock_ = true
 
 [node name="Top" type="Area2D" parent="." unique_id=743958430]
-position = Vector2(0, -7.5)
+position = Vector2(0, -11.5)
 collision_layer = 8
 collision_mask = 0
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top" unique_id=1905902427]
-position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_y2nui")
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="DeathCollision" to="." method="touched_thrower"]

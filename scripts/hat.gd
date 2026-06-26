@@ -7,6 +7,10 @@ var acceleration := 8
 var timer := 0.0
 var thrower: Node2D
 
+var jumped_once := false
+
+var type = "hat"
+
 # Methods
 ## Overriden methods
 func _ready() -> void:

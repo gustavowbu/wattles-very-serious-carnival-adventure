@@ -13,6 +13,7 @@ var max_falling_speed = 15
 
 ## Memory attributes
 var can_dive = true
+var diving = false
 var can_propel = true
 var propelling = false
 var propel_cooldown := 0.0
@@ -48,8 +49,9 @@ func _physics_process(delta: float) -> void:
 
 	if is_on_floor():
 		can_dive = true
-		can_propel = has_hat
-	if propel and can_propel:
+		can_propel = true
+		diving = false
+	if propel and can_propel and has_hat:
 		can_propel = false
 		propelling = true
 		propel_cooldown = 0.35
@@ -78,6 +80,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 80
 		if jump and Global.can_wall_jump:
 			velocity.x = 2 * max_speed * -movement
+		diving = false
 
 	## propelling
 	if propelling and Global.can_propel:
@@ -86,6 +89,7 @@ func _physics_process(delta: float) -> void:
 		propel_cooldown -= delta
 		if propel_cooldown <= 0:
 			propelling = false
+		diving = false
 
 	## jumping
 	if jump and (is_on_floor() or (wall_sliding and Global.can_wall_jump)):
@@ -96,37 +100,51 @@ func _physics_process(delta: float) -> void:
 		velocity.y = -jump_velocity / 1.5
 		velocity.x = 2 * max_speed * direction
 		can_dive = false
+		diving = true
 
 	## throwing hat
 	if throw and has_hat and Global.can_throw:
 		has_hat = false
-		can_propel = false
 		var hat: Node2D = load("res://scenes/hat.tscn").instantiate()
 		hat.thrower = self
+		if wall_sliding:
+			direction *= -1
 		hat.position = position + Vector2(direction * 32, -8)
 		hat.direction = direction
+		if wall_sliding:
+			direction *= -1
 		get_parent().add_child(hat)
 
 	# Updating position
 	move_and_slide()
 
 	# Updating animation
-	## walking
-	if movement == 0 or propelling:
-		sprite.play("idle")
-	elif movement > 0:
-		sprite.play("walking_right")
+	if is_on_floor():
+		## idle and walking
+		if movement == 0:
+			sprite.play("idle")
+		elif movement > 0:
+			sprite.play("walking_right")
+		else:
+			sprite.play("walking_left")
 	else:
-		sprite.play("walking_left")
-
-	## jumping and propelling
-	if not is_on_floor():
+		## jumping and propelling
 		if movement == 0 or propelling:
 			sprite.play("jumping_front")
 		elif movement > 0:
 			sprite.play("jumping_right")
 		else:
 			sprite.play("jumping_left")
+
+	hat_sprite.position = Vector2(-1, -37)
+	## diving
+	if diving:
+		if velocity.x > 0:
+			sprite.play("diving_right")
+			hat_sprite.position = Vector2(7, -32)
+		else:
+			sprite.play("diving_left")
+			hat_sprite.position = Vector2(-8, -32)
 
 	## wall sliding
 	if wall_sliding:
@@ -151,5 +169,10 @@ func _physics_process(delta: float) -> void:
 func _on_death_collision_area_entered(_area: Area2D) -> void:
 	get_tree().reload_current_scene.call_deferred()
 
-func _on_feet_touched_hat(_area: Area2D) -> void:
+func _on_feet_bounced(area: Area2D) -> void:
 	velocity.y = -jump_velocity
+	var parent = area.get_parent()
+	if parent.type == "hat":
+		if parent.jumped_once:
+			parent.die()
+		parent.jumped_once = true

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://wvdtgffeg5w4"]
+
+[ext_resource type="Script" uid="uid://krttqn1e56ea" path="res://scripts/booth.gd" id="1_qf87a"]
+[ext_resource type="Texture2D" uid="uid://dyanewj1c0eve" path="res://assets/booths/booth_tinted_green.png" id="1_tav4u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6b2cs"]
+size = Vector2(111, 20)
+
+[node name="TintedGreenBooth" type="Node2D" unique_id=2136596258]
+script = ExtResource("1_qf87a")
+metadata/_custom_type_script = "uid://krttqn1e56ea"
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=437280662]
+position = Vector2(0, -56)
+texture = ExtResource("1_tav4u")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1261663478]
+position = Vector2(-0.5, -99)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2019310922]
+shape = SubResource("RectangleShape2D_6b2cs")
+metadata/_edit_lock_ = true

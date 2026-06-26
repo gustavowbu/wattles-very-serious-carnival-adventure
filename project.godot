@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Wattles' Very Serious Carnival Adventure"
-run/main_scene="uid://by16lnilea4w"
+run/main_scene="uid://i167v8jhtqth"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://h6mjg7kxx85h"
 
@@ -23,6 +23,7 @@ Global="*uid://bef73nbgdp005"
 
 window/size/viewport_width=960
 window/size/viewport_height=540
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [input]
@@ -66,10 +67,10 @@ throw={
 
 [layer_names]
 
-2d_physics/layer_1="penguin"
+2d_physics/layer_1="player"
 2d_physics/layer_2="floor and walls"
 2d_physics/layer_3="death"
-2d_physics/layer_4="hat"
+2d_physics/layer_4="bouncy"
 
 [physics]
 
@@ -80,3 +81,5 @@ throw={
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 2d/snap/snap_2d_transforms_to_pixel=true
+2d/layer_5=""
+2d/layer_4="bouncy"

@@ -15,6 +15,9 @@ var max_falling_speed = 15
 var movement := 0
 var cooldown := 0.0
 
+## Child nodes
+@onready var sprite: AnimatedSprite2D = $Sprite
+
 # Methods
 ## Overriden methods
 func _ready() -> void:
@@ -56,3 +59,11 @@ func _physics_process(delta: float) -> void:
 
 	# Updating cooldown
 	cooldown -= delta
+
+	# Updating animations
+	if movement == 0:
+		sprite.play("idle")
+	elif movement > 0:
+		sprite.play("walking_right")
+	else:
+		sprite.play("walking_left")
